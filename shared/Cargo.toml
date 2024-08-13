@@ -1,0 +1,10 @@
+[package]
+name = "acme-shared"
+version.workspace = true
+edition.workspace = true
+readme.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+prost = { workspace = true }
+prost-types = { workspace = true }

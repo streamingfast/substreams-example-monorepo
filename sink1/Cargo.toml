@@ -1,0 +1,15 @@
+[package]
+name = "acme-sink1"
+version.workspace = true
+edition.workspace = true
+readme.workspace = true
+rust-version.workspace = true
+
+[lib]
+name = "substreams_sink1"
+crate-type = ["cdylib"]
+
+[dependencies]
+acme-shared = { workspace = true }
+substreams = { workspace = true }
+substreams-database-change = { workspace = true }

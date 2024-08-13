@@ -1,0 +1,29 @@
+[workspace]
+members = ["shared", "core", "sink1"]
+resolver = "2"
+
+[workspace.package]
+version = "0.0.1"
+edition = "2021"
+license = "Apache-2.0"
+readme = "README.md"
+rust-version = "1.70"
+
+[workspace.dependencies]
+acme-core = { path = "./core" }
+acme-shared = { path = "./shared" }
+ethabi = "17"
+prost = "0.11"
+prost-types = "0.11"
+substreams = "0.5.21"
+substreams-database-change = "1"
+substreams-ethereum = "0.9"
+substreams-ethereum-abigen = "0.9"
+substreams-ethereum-core = "0.9"
+substreams-ethereum-derive = "0.9"
+
+
+[profile.release]
+lto = true
+opt-level = 's'
+strip = "debuginfo"

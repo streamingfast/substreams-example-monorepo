@@ -1,0 +1,32 @@
+[package]
+name = "acme-core"
+version.workspace = true
+edition.workspace = true
+readme.workspace = true
+rust-version.workspace = true
+
+[lib]
+name = "substreams_core"
+crate-type = ["cdylib"]
+
+[dependencies]
+acme-shared = { workspace = true }
+ethabi = { workspace = true }
+prost = { workspace = true }
+prost-types = { workspace = true }
+substreams = { workspace = true }
+substreams-ethereum = { workspace = true }
+
+hex-literal = "0.3.4"
+num-bigint = "0.4"
+num-traits = "0.2.15"
+
+# Required so that ethabi > ethereum-types build correctly under wasm32-unknown-unknown
+[target.wasm32-unknown-unknown.dependencies]
+getrandom = { version = "0.2", features = ["custom"] }
+
+[build-dependencies]
+substreams-ethereum = { workspace = true }
+
+anyhow = "1"
+regex = "1.8"

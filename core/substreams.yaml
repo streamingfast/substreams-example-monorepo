@@ -1,0 +1,28 @@
+specVersion: v0.1.0
+package:
+  name: core
+  version: v0.1.0
+
+protobuf:
+  files:
+    - acme/v1/usdt/usdt.proto
+  importPaths:
+    - ../shared/proto
+  excludePaths:
+    - acme/v1/usdt
+
+binaries:
+  default:
+    type: wasm/rust-v1
+    file: ../target/wasm32-unknown-unknown/release/substreams_core.wasm
+
+modules:
+  - name: map_transfers
+    kind: map
+    initialBlock: 4634748
+    inputs:
+      - source: sf.ethereum.type.v2.Block
+    output:
+      type: proto:acme.v1.usdt.Transfers
+
+network: mainnet
