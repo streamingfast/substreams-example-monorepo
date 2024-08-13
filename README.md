@@ -22,9 +22,9 @@ Here the details of each folder and their purposes.
 
 This package is the shared Rust code across all your modules. It's not a Substreams module as it needs to be shared a library across the various Substreams modules.
 
-Indeed, the `core` module being a Substreams module, it produces a final binary `.wasm` file and as such, it can be a dependency of another package.
+Indeed, the `core` module being a Substreams module, it produces a final binary `.wasm` file and as such, it cannot be a dependency of another package.
 
-That's why we have `shared` that contains in this example Protobuf source definitions as well as Rust generated Protobuf bindings. This module could be extended to hold any helpers/logic/shared data structure(s).
+That's why we have `shared` package that contains, in this example, Protobuf source definitions as well as Rust generated Protobuf bindings. This module could be extended to hold any helpers/logic/shared data structure(s).
 
 #### Package [`core`](./core)
 
