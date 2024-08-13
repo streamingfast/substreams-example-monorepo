@@ -16,9 +16,9 @@ substreams run ./sink1/substeams.yaml db_out
 
 ### Packages
 
-Here the details of each folder and their purposes:
+Here the details of each folder and their purposes.
 
-- `shared`
+#### Packge [`shared`](./shared)
 
   This package is the shared Rust code across all your modules. It's not a Substreams module as it needs to be shared a library across the various Substreams modules.
 
@@ -26,7 +26,7 @@ Here the details of each folder and their purposes:
 
   That's why we have `shared` that contains in this example Protobuf source definitions as well as Rust generated Protobuf bindings. This module could be extended to hold any helpers/logic/shared data structure(s).
 
-- `core`
+#### Packge [`core`](./core)
 
   This is the core Substreams module. It depends on `shared` by importing the correct Rust bindings from it. The module process block and extract USDT transfers from it and output them.
 
@@ -34,12 +34,12 @@ Here the details of each folder and their purposes:
 
   By ensuring that a compiled `.spkg` file is used, we make sure that as long as downstream Substreams depends on this compiled and packed `.spkg`, they will consume data from the cache and will avoid reprocessing the same data over and over.
 
-  > [!IMPORTANT]
-  > In our example, for simplicity, we use a locally committed `.spkg` file (namely [core/core-v0.1.0.spkg](./core/core-v0.1.0.spkg)). In a real production example, you should ensure this file is properly "released" and kept immutable. Most of our sinks and Substreams CLI supports reading the `.spkg` from HTTP/HTTPS, Google Cloud Storage (via `gs://<bucket>/<file>`) as well as from S3 bucket (via `s3://<bucket>/<file>`).
+  > [!NOTE]
+  > *In our example, for simplicity, we use a locally committed `.spkg` file (namely [core/core-v0.1.0.spkg](./core/core-v0.1.0.spkg)). In a real production example, you should ensure this file is properly "released" and kept immutable. Most of our sinks and Substreams CLI supports reading the `.spkg` from HTTP/HTTPS, Google Cloud Storage (via `gs://<bucket>/<file>`) as well as from S3 bucket (via `s3://<bucket>/<file>`).
   >
   > See https://github.com/streamingfast/dstore?tab=readme-ov-file#features for `gs://` and `s3://` URL format supported.
 
-- `sink1`
+#### Packge [`sink1`](./sink1)
 
   This is also a Substreams module that depends on `core` Substreams module and uses `shared` to pull the Rust project specific Protobuf bindings for processing the `Transfers` output by `core` module.
 
