@@ -17,8 +17,9 @@ binaries:
 modules:
   - name: db_out
     kind: map
-    # Showcase how start block of sink1 could differ, adjust to your needs
-    initialBlock: 17000000
+    # Here you could put a block that is after the start block of `core:map_transfers`,
+    # the engine can work with that.
+    initialBlock: 4634748
     inputs:
       - map: core:map_transfers
     output:
