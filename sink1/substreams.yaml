@@ -1,7 +1,7 @@
 specVersion: v0.1.0
 package:
   name: sink1
-  version: v0.1.0
+  version: v0.2.0
 
 imports:
   # For simplicity, we import the core package from the local filesystem. In a real-world scenario, you would use a URL

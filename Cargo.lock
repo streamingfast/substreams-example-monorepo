@@ -4,7 +4,7 @@ version = 3
 
 [[package]]
 name = "acme-core"
-version = "0.0.1"
+version = "0.2.0"
 dependencies = [
  "acme-shared",
  "anyhow",
@@ -22,7 +22,7 @@ dependencies = [
 
 [[package]]
 name = "acme-shared"
-version = "0.0.1"
+version = "0.2.0"
 dependencies = [
  "prost",
  "prost-types",
@@ -30,7 +30,7 @@ dependencies = [
 
 [[package]]
 name = "acme-sink1"
-version = "0.0.1"
+version = "0.2.0"
 dependencies = [
  "acme-shared",
  "substreams",

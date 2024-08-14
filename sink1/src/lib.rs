@@ -26,7 +26,6 @@ fn db_transfers_out(transfers: &usdt::Transfers, tables: &mut DatabaseChangeTabl
 
 #[substreams::handlers::map]
 fn db_out(transfers: usdt::Transfers) -> Result<DatabaseChanges, substreams::errors::Error> {
-    // Initialize Database Changes container
     let mut tables = DatabaseChangeTables::new();
     db_transfers_out(&transfers, &mut tables);
     Ok(tables.to_database_changes())
